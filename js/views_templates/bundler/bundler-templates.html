@@ -1,0 +1,27 @@
+<script id="bundlerLayoutTemplate" type="text/html">
+	<h1>bundly</h1>
+	<h3>Bundle up some links</h3>
+	<form>
+		<input type="text" placeholder="Type a URL here" tabindex=1 />
+		<button type="submit" data-action="add" tabindex=2>Add</button>
+	</form>
+
+	<hr />
+	<div class="regionCollectionTitle"></div>
+	<div class="regionCollection"></div>
+	<div class="regionButton"></div>
+</script>
+
+<script id="bundledLinkTemplate" type="text/html">
+	<span class="sort-icon" draggable="<%= obj.draggable %>"><i class="fa fa-navicon"></i></span>
+	<span>{ model:url }</span>
+	<a href="" class="remove-icon" data-action="remove"><i class="fa fa-trash"></i></a>
+</script>
+
+<script id="bundleTitleTemplate" type="text/html">
+	<input type="text" rv-value="model:title" rv-show="view.collection.length" placeholder="Enter a title"/>
+</script>
+
+<script id="bundleButtonTemplate" type="text/html">
+	<button type="submit" rv-show="view.collection.length" rv-disabled="view.disabled">Generate Bundle URL</button>
+</script>
