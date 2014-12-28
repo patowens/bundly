@@ -16,12 +16,10 @@ BundlerLayout = window.BoundLayout.extend({
 		regionButton: '.regionButton',
 	},
 
-	onRender: function() {
-		$(function() {
-			this.regionCollectionTitle.show(new CollectionTitleView({ model: this.model, collection: this.collection}));
-			this.regionCollection.show(new CollectionOfLinksView({ collection: this.collection}));
-			this.regionButton.show(new BundleButtonView({ model: this.model, collection: this.collection}));
-		}.bind(this));
+	onShow: function() {
+		this.regionCollectionTitle.show(new CollectionTitleView({ model: this.model, collection: this.collection}));
+		this.regionCollection.show(new CollectionOfLinksView({ collection: this.collection}));
+		this.regionButton.show(new BundleButtonView({ model: this.model, collection: this.collection}));
 	},
 
 	events: {
