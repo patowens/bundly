@@ -1,0 +1,32 @@
+<script id="modalHeader" type="text/html">
+	<span class="modal-title" rv-text="view.title"></span>
+	<div class="modal-header-actions">
+		<span class="modal-header-action" rv-show="view.closable" data-action="close"><i class="fa fa-remove"></i></span>
+	</div>
+</script>
+
+<script id="modalLayout" type="text/html">
+	<div class="modal-inner">
+		<div class="modal-header region-modal-header"></div>
+		<div class="modal-body region-modal-content"></div>
+	</div>
+</script>
+
+<script id="editLink" type="text/html">
+	<div class="row">
+		<label for="urlInput">URL</label>
+		<input id="urlInput" type="text" rv-value="model:url" class="u-full-width" />
+	</div>
+
+	<div class="row">
+		<label for="descriptionInput">Descrition</label>
+		<textarea id="descriptionInput" rv-value="model:description" style="height:150px" class="u-full-width"></textarea>
+	</div>
+
+	<div class="row">
+		<div class="right modal-actions">
+			<button data-action="close">Cancel</button>
+			<button class="button-primary">Done</button>
+		</div>
+	</div>
+</script>

@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     rm = require('gulp-rimraf');
 
 gulp.task('clean', function() {
-  return gulp.src('dist/*').pipe(rm());
+  return gulp.src('frontend/dist/*').pipe(rm());
 });
 
 gulp.task('devServer', function() {
@@ -16,25 +16,25 @@ gulp.task('devServer', function() {
 });
 
 gulp.task('combineTemplates', function() {
-  gulp.src('js/**/*.html')
+  gulp.src('frontend/js/**/*.html')
     .pipe(concat('allTemplates.html'))
-    .pipe(gulp.dest('./dist/'))
+    .pipe(gulp.dest('./frontend/dist/'))
 });
 
 gulp.task('combineScripts', function() {
-  gulp.src('js/**/*.js')
+  gulp.src('frontend/js/**/*.js')
     .pipe(concat('allScripts.js'))
-    .pipe(gulp.dest('./dist/'))
+    .pipe(gulp.dest('./frontend/dist/'))
 });
 
 gulp.task('buildIndex', function() {
-  gulp.src(['partials/top.html', 'dist/allTemplates.html', 'partials/tail.html'])
-    .pipe(concat('index.html'))
+  gulp.src(['frontend/partials/top.html', 'frontend/dist/allTemplates.html', 'frontend/partials/tail.html'])
+    .pipe(concat('frontend/index.html'))
     .pipe(gulp.dest('./'))
 });
 
 gulp.task('default', ['clean', 'devServer', 'combineTemplates', 'combineScripts', 'buildIndex'], function() {
-  gulp.watch(['js/**/*.js', 'js/**/*.html', 'css/**/*.css'], ['clean', 'combineScripts', 'combineTemplates', 'buildIndex'], function(files) {
+  gulp.watch(['frontend/js/**/*.js', 'frontend/js/**/*.html', 'frontend/css/**/*.css'], ['clean', 'combineScripts', 'combineTemplates', 'buildIndex'], function(files) {
     livereload.changed(files)
   });
 });

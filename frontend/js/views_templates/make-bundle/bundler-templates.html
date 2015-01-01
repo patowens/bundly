@@ -1,0 +1,72 @@
+<script id="bundlerLayoutTemplate" type="text/html">
+	
+	<div class="heading-wrap">
+		<h2>bundly</h2>
+		<p class="subtitle">one link to rule them all - one link to find them</span>
+	</div>
+
+	<form class="row">
+		<div class="url-input-wrap" style="width:80%; float:left;">
+			<input class="u-full-width" type="text" placeholder="Type a URL here" tabindex=1 />
+		</div>
+
+		<div class="url-button-wrap" style="width:20%; float:left;">
+			<button class="u-full-width" type="submit" data-action="add" tabindex=2>Add</button>
+		</div>
+
+	</form>
+
+	<div class="regionCollectionTitle"></div>
+	<div class="regionCollection"></div>
+	<div class="regionButton"></div>
+	<div class="regionResults"></div>
+
+</script>
+
+<script id="bundledLinkEditTemplate" type="text/html">
+	<span class="sort-icon"><i class="fa fa-navicon"></i></span>
+	<span>{ model:url }</span>
+	<span style="display:none;"> - { model:order }</span>
+	<div class="list-item-actions">
+		<a href="" class="more-icon" data-action="more"><i class="fa fa-ellipsis-h"></i></a>
+		<a href="" class="remove-icon" data-action="remove"><i class="fa fa-trash"></i></a>
+	</div>
+</script>
+
+<script id="bundleTitleTemplate" type="text/html">
+	<div rv-show="model:title" style="padding-left:10px;">
+		<strong rv-text="model:title"></strong>
+	</div>
+</script>
+
+<script id="bundleButtonTemplate" type="text/html">
+	<!-- <button type="submit" rv-show="view.collection.length" rv-disabled="view.disabled">Generate Bundle URL</button> -->
+</script>
+
+<script id="bundleResultsTemplate" type="text/html">
+	
+	<div class="results-wrap" rv-show="view.collection.length">
+		<div class="row">
+			<div class="before" rv-hide="view.ready">
+				<a class="result-url eight columns"><i class="fa fa-spinner fa-spin"></i>Generating URL</a>
+				<a class="action-link mute disabled" href="#copy" data-action="copy"><i class="fa fa-clipboard"></i>copy</a>
+				<a class="action-link mute disabled" href="#share" data-action="share"><i class="fa fa-share-alt"></i>share</a>
+			</div>
+			<div class="after" rv-show="view.ready">
+				<a class="result-url eight columns" target="" rv-href="model:fullUrl"><i class="fa fa-link"></i><span rv-text="model:shortUrl"></span></a>
+				<a class="action-link deep-inset-left blue" rv-show="view.ready" href="#refresh" data-action="refresh"><i class="fa fa-refresh"></i></a>
+				<a class="action-link blue" rv-show="view.ready" href="#copy" data-action="copy"><i class="fa fa-clipboard"></i>copy</a>
+				<a class="action-link blue" rv-show="view.ready" href="#share" data-action="share"><i class="fa fa-share-alt"></i>share</a>
+			</div>
+		</div>
+	</div>
+
+</script>
+
+<script id="contextMenuTemplate" type="text/html">
+	<ul>
+		<li data-action="edit">edit</li>
+		<li data-action="open">open in new tab</li>
+		<li data-action="delete">delete</li>
+	</ul>
+</script>
